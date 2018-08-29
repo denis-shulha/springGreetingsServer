@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SimpleGreetingsRequestProcessorServiceImpl implements GreetingsRequestProcessorService {
+
     @Override
-    public SimpleGreetingsResponse processRequest(SimpleGreetingsRequest request) {
+    public String processRequest(SimpleGreetingsRequest request) {
         String message = request.getMessage();
         String name = request.getName();
 
@@ -18,7 +19,7 @@ public class SimpleGreetingsRequestProcessorServiceImpl implements GreetingsRequ
         }
 
         System.out.println(String.format("message from: %s, content: %s", name, message));
-        return new SimpleGreetingsResponse("Hello, " + name);
+        return ("Hello, " + name);
     }
 
     @Override

@@ -69,15 +69,15 @@ public class SpringGreetingsServer  implements Runnable{
 
                 List<GreetingsRequestProcessorService> processors = provider.get();
 
-                SimpleGreetingsResponse response = null;
+                String responseString ="";
 
                 for (GreetingsRequestProcessorService processor : processors) {
                     if (processor.acceptRequest(request)) {
-                        response = processor.processRequest(request);
-                        break;
+                        responseString = processor.processRequest(request);
                     }
                 }
-                String responseString = objectMapper.writeValueAsString(response);
+                responseString = objectMapper.writeValueAsString(
+                new SimpleGreetingsResponse(responseString));
 
                 writer.write(responseString);
                 writer.flush();

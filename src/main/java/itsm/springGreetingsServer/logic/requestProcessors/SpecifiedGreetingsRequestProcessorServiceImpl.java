@@ -1,14 +1,13 @@
 package itsm.springGreetingsServer.logic.requestProcessors;
 
 import itsm.springGreetingsServer.messages.SimpleGreetingsRequest;
-import itsm.springGreetingsServer.messages.SimpleGreetingsResponse;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SpecifiedGreetingsRequestProcessorServiceImpl implements GreetingsRequestProcessorService {
 
     @Override
-    public SimpleGreetingsResponse processRequest(SimpleGreetingsRequest request) {
+    public String processRequest(SimpleGreetingsRequest request) {
         String message = request.getMessage();
         String name = request.getName();
 
@@ -19,11 +18,11 @@ public class SpecifiedGreetingsRequestProcessorServiceImpl implements GreetingsR
         }
 
         System.out.println(String.format("message from: %s, content: %s", name, message));
-        return new SimpleGreetingsResponse("Hello, " + name);
+        return ("Hello, " + name);
     }
 
     @Override
     public boolean acceptRequest(SimpleGreetingsRequest simpleGreetingsRequest) {
-        return false;
+        return true;
     }
 }
