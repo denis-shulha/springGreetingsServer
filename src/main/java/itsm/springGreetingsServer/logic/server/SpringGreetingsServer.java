@@ -1,6 +1,7 @@
 package itsm.springGreetingsServer.logic.server;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import itsm.springGreetingsServer.logic.Sleeper.ServerResponseSleeper;
 import itsm.springGreetingsServer.logic.requestProcessors.GreetingsRequestProcessorService;
 import itsm.springGreetingsServer.messages.SimpleGreetingsRequest;
 import itsm.springGreetingsServer.messages.SimpleGreetingsResponse;
@@ -17,15 +18,15 @@ import java.util.concurrent.Executors;
 
 public class SpringGreetingsServer  implements Runnable{
 
-    private int port;
+    private Integer port;
     private ExecutorService executorService;
-    private final int threadCount;
+    private final Integer threadCount;
     private ServerSocket serverSocket;
     private final ObjectMapper objectMapper;
     private final Provider<List<GreetingsRequestProcessorService>> provider;
 
-    public SpringGreetingsServer(int port,
-                                 int threadCount,
+    public SpringGreetingsServer(Integer port,
+                                 Integer threadCount,
                                  ObjectMapper objectMapper,
                                  Provider<List<GreetingsRequestProcessorService>> provider) {
         this.port = port;

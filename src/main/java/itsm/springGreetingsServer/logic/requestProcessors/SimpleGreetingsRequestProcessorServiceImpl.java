@@ -1,11 +1,19 @@
 package itsm.springGreetingsServer.logic.requestProcessors;
 
+import itsm.springGreetingsServer.logic.Sleeper.ServerResponseSleeper;
 import itsm.springGreetingsServer.messages.SimpleGreetingsRequest;
-import itsm.springGreetingsServer.messages.SimpleGreetingsResponse;
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class SimpleGreetingsRequestProcessorServiceImpl implements GreetingsRequestProcessorService {
+
+    private ServerResponseSleeper sleeper;
+
+    @Autowired
+    public SimpleGreetingsRequestProcessorServiceImpl(ServerResponseSleeper sleeper) {
+        this.sleeper = sleeper;
+    }
 
     @Override
     public String processRequest(SimpleGreetingsRequest request) {
@@ -13,7 +21,7 @@ public class SimpleGreetingsRequestProcessorServiceImpl implements GreetingsRequ
         String name = request.getName();
 
         try {
-            Thread.sleep(500);
+            sleeper.sleep();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -24,6 +32,7 @@ public class SimpleGreetingsRequestProcessorServiceImpl implements GreetingsRequ
 
     @Override
     public boolean acceptRequest(SimpleGreetingsRequest simpleGreetingsRequest) {
-        return true;
+
+        return !simpleGreetingsRequest.getMessage().contains("specified");
     }
 }
