@@ -1,20 +1,16 @@
 package itsm.springGreetingsServer.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import itsm.springGreetingsServer.logic.Sleeper.ServerResponseSleeper;
+import itsm.springGreetingsServer.logic.sleeper.ServerResponseSleeper;
 import itsm.springGreetingsServer.logic.requestProcessors.GreetingsRequestProcessorService;
 import itsm.springGreetingsServer.logic.server.SpringGreetingsServer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.ConfigurableEnvironment;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Provider;
-import java.rmi.server.ServerCloneException;
 import java.util.List;
 
 @Configuration

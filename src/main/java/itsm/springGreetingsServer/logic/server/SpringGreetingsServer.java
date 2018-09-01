@@ -1,7 +1,6 @@
 package itsm.springGreetingsServer.logic.server;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import itsm.springGreetingsServer.logic.Sleeper.ServerResponseSleeper;
 import itsm.springGreetingsServer.logic.requestProcessors.GreetingsRequestProcessorService;
 import itsm.springGreetingsServer.messages.SimpleGreetingsRequest;
 import itsm.springGreetingsServer.messages.SimpleGreetingsResponse;

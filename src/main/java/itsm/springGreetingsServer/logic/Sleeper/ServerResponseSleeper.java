@@ -1,7 +1,6 @@
-package itsm.springGreetingsServer.logic.Sleeper;
+package itsm.springGreetingsServer.logic.sleeper;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 
 public class ServerResponseSleeper {
 
@@ -12,7 +11,15 @@ public class ServerResponseSleeper {
         this.delay = delay;
     }
 
-    public void sleep() throws InterruptedException {
-        Thread.sleep(delay);
+    public Integer sleep() {
+        try {
+            Thread.sleep(delay);
+            return 1;
+        }
+        catch (InterruptedException ex) {
+            ex.printStackTrace();
+            return 0;
+        }
+
     }
 }
