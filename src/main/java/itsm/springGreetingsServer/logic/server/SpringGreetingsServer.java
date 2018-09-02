@@ -65,7 +65,8 @@ public class SpringGreetingsServer  implements Runnable{
                 OutputStreamWriter writer = new OutputStreamWriter(os);
 
                 BufferedReader br = new BufferedReader(reader);
-                SimpleGreetingsRequest request = objectMapper.readValue(br.readLine(), SimpleGreetingsRequest.class);
+                String requestStr = br.readLine();
+                SimpleGreetingsRequest request = objectMapper.readValue(requestStr, SimpleGreetingsRequest.class);
 
                 List<GreetingsRequestProcessorService> processors = provider.get();
 
@@ -77,8 +78,7 @@ public class SpringGreetingsServer  implements Runnable{
                     }
                 }
                 responseString = objectMapper.writeValueAsString(
-                new SimpleGreetingsResponse(responseString));
-
+                new SimpleGreetingsResponse(responseString)) + "\n";
                 writer.write(responseString);
                 writer.flush();
 

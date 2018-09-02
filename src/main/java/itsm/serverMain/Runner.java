@@ -1,3 +1,5 @@
+package itsm.serverMain;
+
 import itsm.springGreetingsServer.config.AppConfig;
 import itsm.springGreetingsServer.logic.server.SpringGreetingsServer;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

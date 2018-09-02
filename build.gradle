@@ -1,7 +1,10 @@
-group 'itsm'
-version '1.0-SNAPSHOT'
+plugins {
+    id 'java'
+}
 
-apply plugin: 'java'
+group 'itsm'
+version '1.0'
+
 
 sourceCompatibility = 1.8
 
@@ -20,8 +23,12 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile group: 'org.mockito', name: 'mockito-core', version: '2.21.0'
 }
+
 jar {
     manifest {
-        attributes 'Main-Class': 'itsm.Runner'
+        attributes 'Main-Class': 'itsm.serverMain.Runner'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
