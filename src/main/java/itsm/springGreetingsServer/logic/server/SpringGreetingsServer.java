@@ -37,6 +37,7 @@ public class SpringGreetingsServer  implements Runnable{
     @PostConstruct
     public void init() throws IOException {
         serverSocket = new ServerSocket(port);
+        System.out.println("creating server socket");
         executorService = Executors.newFixedThreadPool(threadCount);
     }
 
