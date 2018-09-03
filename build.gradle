@@ -13,10 +13,10 @@ repositories {
 }
 
 dependencies {
-    compile 'org.springframework:spring-core:4.3.18.RELEASE'
-    compile 'org.springframework:spring-beans:4.3.18.RELEASE'
-    compile 'org.springframework:spring-context:4.3.18.RELEASE'
-    compile 'org.springframework:spring-context-support:4.3.18.RELEASE'
+    compile 'org.springframework:spring-core:5.0.8.RELEASE'
+    compile 'org.springframework:spring-beans:5.0.8.RELEASE'
+    compile 'org.springframework:spring-context:5.0.8.RELEASE'
+    compile 'org.springframework:spring-context-support:5.0.8.RELEASE'
 
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
 
